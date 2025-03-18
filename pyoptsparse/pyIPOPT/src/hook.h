@@ -9,6 +9,10 @@
 #ifndef PY_IPOPT_HOOK_
 #define PY_IPOPT_HOOK_
 
+#ifndef PyArray_DOUBLE
+#define PyArray_DOUBLE NPY_DOUBLE
+#endif
+
 // A series of callback functions used by Ipopt C Interface
 Bool eval_f(Index n,
 	    Number * x, Bool new_x, Number * obj_value, UserDataPtr user_data);

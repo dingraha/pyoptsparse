@@ -35,7 +35,8 @@ from ..pyOpt_utils import (
 # import the compiled module
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 _IMPORT_SNOPT_FROM = os.environ.get("PYOPTSPARSE_IMPORT_SNOPT_FROM", THIS_DIR)
-snopt = try_import_compiled_module_from_path("snopt", _IMPORT_SNOPT_FROM)
+print(f"DJI: _IMPORT_SNOPT_FROM = {_IMPORT_SNOPT_FROM}")
+snopt = try_import_compiled_module_from_path("snopt", _IMPORT_SNOPT_FROM, raise_warning=True)
 
 
 class SNOPT(Optimizer):

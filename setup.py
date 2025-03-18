@@ -40,7 +40,7 @@ def run_meson_build():
         raise OSError(sysargs, f"The meson setup command failed! Check the log at {setup_log} for more information.")
 
     # build
-    meson_call = f"{meson_path} compile -C {staging_dir}"
+    meson_call = f"{meson_path} compile -vC {staging_dir}"
     sysargs = meson_call.split(" ")
     p2 = subprocess.run(sysargs, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     compile_log = os.path.join(staging_dir, "compile.log")
@@ -93,6 +93,7 @@ if __name__ == "__main__":
         r"""__version__ = ["']+([0-9\.]*)["']+""",
         open(init_file).read(),
     )[0]
+    print(f"DJI: __version__ = {__version__}")
 
     setuptools.setup(
         name="pyoptsparse",
